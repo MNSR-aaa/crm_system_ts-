@@ -13,6 +13,11 @@ import { Link } from "react-router";
 import useUserStore from "../../store/userStore";
 import useBurgerStore from "../../store/burgerStore";
 
+interface INavigationMenuItem {
+  text: string;
+  to: string;
+}
+
 export default function TopBar() {
   function handleSignOutClick() {
     const isUserOut = confirm("вы точно хотите выйти?");
@@ -23,7 +28,7 @@ export default function TopBar() {
     }
   }
 
-  const navigationMenu = [
+  const navigationMenu: INavigationMenuItem[] = [
     { text: "Рассылки", to: "/" },
     { text: "Automation", to: "/" },
     { text: "Чат-бот", to: "/" },

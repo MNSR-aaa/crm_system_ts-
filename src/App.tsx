@@ -3,9 +3,9 @@ import Shell from "./pages/main/Shell";
 import { createTheme, MantineProvider } from "@mantine/core";
 import SignIn from "./pages/auth/SignIn";
 import UserSettings from "./pages/userSettings/UserSettings";
-
 import ContactsTable from "./pages/tables/ContactsTable";
 import Overlay from "./components/overlay/Overlay";
+import TestBored from "./pages/test/Test";
 
 const theme = createTheme({});
 
@@ -20,6 +20,7 @@ export default function App() {
             <Route path="/main" element={<Shell />} />
             <Route path="/contacts" element={<ContactsTable />} />
             <Route path="/userSettings" element={<UserSettings />} />
+            <Route path="/testBoard" element={<TestBored />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -51,8 +51,6 @@ export default function ContactsTable() {
     opened: false,
   });
 
-
-
   const editModalContact = contacts.find(
     (contact) => contact.id == editModal.contactId
   );
@@ -137,11 +135,6 @@ export default function ContactsTable() {
   const handleOpenAdd = () => {
     setAddModal({ opened: true });
   };
-
-  console.log("Contacts", contacts);
-  console.log("pages", pages);
-  console.log("page", page);
-  console.log("search", search);
 
   return (
     <>

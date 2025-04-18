@@ -14,7 +14,7 @@ import axios from "axios";
 import { BASE_API_URL } from "../../constants/api";
 
 export default function SignIn() {
-  const [checked] = useState(true);
+  const [checked, setChecked] = useState(true);
   const [loading, setLoading] = useState<boolean>(false);
 
   const form = useForm({
@@ -72,7 +72,12 @@ export default function SignIn() {
               key={form.key("password")}
               {...form.getInputProps("password")}
             />
-            <Checkbox pt={20} label="Keep me logged in" checked={checked} />
+            <Checkbox
+              pt={20}
+              label="Keep me logged in"
+              checked={checked}
+              onChange={(event) => setChecked(event.currentTarget.checked)}
+            />
             <Group justify="center" pt={20}>
               <Button loading={loading} type="submit" mt="sm">
                 Log in

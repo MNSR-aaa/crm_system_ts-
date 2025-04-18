@@ -13,16 +13,13 @@ interface IProps {
 
 export default function ContactEditModal({ onClose, title, contact }: IProps) {
   const [loading, setLoading] = useState<boolean>(false);
-  const [name, setName] = useState<string>(contact?.name || "");
-  const [email, setEmail] = useState<string>(contact?.email || "");
-  const [phone, setPhone] = useState<string>(contact?.phone || "");
 
   const form = useForm({
     mode: "uncontrolled",
     initialValues: {
-      name: name,
-      email: email,
-      phone: phone,
+      name: contact.name,
+      email: contact.email,
+      phone: contact.phone,
     },
     validate: {
       name: (name) => (!name || name.length < 2 ? "Invalid name" : null),
@@ -62,23 +59,11 @@ export default function ContactEditModal({ onClose, title, contact }: IProps) {
       <form onSubmit={form.onSubmit(handleSubmitEdit)}>
         <Card>
           <Text>Name</Text>
-          <TextInput
-            key={form.key("name")}
-            {...form.getInputProps("name")}
-            onChange={(event) => setName(event.currentTarget.value)}
-          />
+          <TextInput key={form.key("name")} {...form.getInputProps("name")} />
           <Text>Email</Text>
-          <TextInput
-            key={form.key("email")}
-            {...form.getInputProps("email")}
-            onChange={(event) => setEmail(event.currentTarget.value)}
-          />
+          <TextInput key={form.key("email")} {...form.getInputProps("email")} />
           <Text>Phone</Text>
-          <TextInput
-            key={form.key("phone")}
-            {...form.getInputProps("phone")}
-            onChange={(event) => setPhone(event.currentTarget.value)}
-          />
+          <TextInput key={form.key("phone")} {...form.getInputProps("phone")} />
           <Group justify="center">
             <Button mt={25} mb={-15} w={200} type="submit" loading={loading}>
               Confirm edit

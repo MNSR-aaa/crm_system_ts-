@@ -85,7 +85,6 @@ const useUserStore = create<IUseUserStore>((set) => ({
     set((state) => ({
       user: { ...state.user, ...newData },
     }));
-    console.log("newData", newData);
   },
   getUserFromToken: async () => {
     console.log("Hello");
